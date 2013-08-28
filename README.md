@@ -83,9 +83,8 @@ There should be 2 nodes now ! Hurrah !
 
 #### Authors
 
-Louis Cuny: [@lou](https://github.com/lou)
-
-Olivier de Robert: [@zitooon](https://github.com/zitooon)
+* Louis Cuny: [@lou](https://github.com/lou)
+* Olivier de Robert: [@zitooon](https://github.com/zitooon)
 
 ### License
 
