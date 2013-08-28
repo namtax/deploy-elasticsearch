@@ -80,3 +80,12 @@ http://$USERNAME:$PASSWORD@$HOST:8080/_plugin/paramedic/
 ```
 
 There should be 2 nodes now ! Hurrah !
+
+#### Authors
+
+Louis Cuny: @lou
+Olivier de Robert: @zitooon
+
+### License
+
+Licensed under [MIT](http://opensource.org/licenses/mit-license.php). Enjoy!
