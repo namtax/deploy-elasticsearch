@@ -83,6 +83,9 @@ There should be 2 nodes now ! Hurrah !
 
 #### Authors
 
+Original code by Karel Minařík [@karmi](https://github.com/karmi)
+
+Adapted by:
 * Louis Cuny: [@lou](https://github.com/lou)
 * Olivier de Robert: [@zitooon](https://github.com/zitooon)
 
