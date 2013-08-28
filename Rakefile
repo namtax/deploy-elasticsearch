@@ -189,7 +189,14 @@ task :provision => :setup do
   exit(1) unless $?.success?
 
   puts "_"*ANSI::Terminal.terminal_width
+  puts "\nTo make some test please copy paste these 3 lines in your terminal:"
+  puts "\nUSERNAME=#{@args[:http_username]}"
+  puts "PASSWORD=#{@args[:http_password]}"
+  puts "HOST=#{@server.node.dns_name}"
+  puts "_"*ANSI::Terminal.terminal_width
+  puts "\nOr you can:"
   puts "\nOpen " + "http://#{@args[:http_username]}:#{@args[:http_password]}@#{@server.node.dns_name}:8080".ansi(:bold) + " in your browser"
+  puts "Or open " + "http://#{@args[:http_username]}:#{@args[:http_password]}@#{@server.node.dns_name}:8080/_plugins/paramedic".ansi(:bold) + " in your browser"
 end
 
 task :upload => :setup do

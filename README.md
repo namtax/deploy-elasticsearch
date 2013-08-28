@@ -70,16 +70,17 @@ Let’s try to perform a search:
 curl "http://$USERNAME:$PASSWORD@$HOST:8080/_search?pretty"
 ```
 
-Launch another machine:
+Launch another instance:
 ```shell
-bundle exec rake create NAME=elastisearch-02
+bundle exec rake create NAME=elastisearch-02 AWS_SSH_KEY_ID=aws_key_pair_name SSH_KEY=path/to/aws_key_pair
 ```
 
-In a browser open:
+When finished open in your browser:
 ```
 http://$USERNAME:$PASSWORD@$HOST:8080/_plugin/paramedic/
 ```
-With the EC2 autodiscovery function from elasticsearch, these 2 servers (and thus 2 nodes) are now working together. Hurrah !
+With the EC2 autodiscovery function from elasticsearch, these 2 servers (and thus 2 nodes) are now working together.
+You can confirm by checking the top left corner you should read "NODES 1 DOCS 3", Hurrah !
 
 #### Authors
 
