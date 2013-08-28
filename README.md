@@ -13,14 +13,18 @@ Elasticsearch is monitored by Monit and Nginx is used as a proxy.
 
 Add a node.json file
 ```shell
-mv node.json.example node.json
+cp node.json.example node.json
 ```
 
 Add your AWS and NGINX credentials, your EC2 security group and your contact email for Monit (search and replace the term "YOUR_" in the node.json file).
 
-Finally launch the rake task
+Install gems
 ```shell
 bundle install
+```
+
+Finally launch the rake task, don't forget to add a NAME for the ES node, AWS_SSH_KEY_ID which is the name of your AWS Key Pair and SSH_KEY which is the local path to your Key Pair 
+```shell
 bundle exec rake create NAME=elastisearch-01 AWS_SSH_KEY_ID=aws_key_pair_name SSH_KEY=path/to/aws_key_pair
 ```
 
