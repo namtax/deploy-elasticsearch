@@ -34,7 +34,7 @@ test  -d /var/chef-solo/site-cookbooks/ark || git clone git://github.com/bryanwb
 
 test  -d /var/chef-solo/site-cookbooks/apt || git clone git://github.com/opscode-cookbooks/apt.git /var/chef-solo/site-cookbooks/apt
 
-test  -d /var/chef-solo/cookbooks/elasticsearch || git clone git://github.com/copyrightly/cookbook-elasticsearch.git /var/chef-solo/cookbooks/elasticsearch
+test  -d /var/chef-solo/cookbooks/elasticsearch || git clone git://github.com/octoly/cookbook-elasticsearch.git /var/chef-solo/cookbooks/elasticsearch
 
 
 echo -e "\n*******************************************************************************\n" \
