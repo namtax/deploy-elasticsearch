@@ -45,7 +45,7 @@
         "region"     : "us-east-1"
       },
       "ec2"     : {
-        "security_group": "elasticsearch"
+        "security_group": "YOUR_EC2_SECURITY_GROUP"
       }
     },
 

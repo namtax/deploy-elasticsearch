@@ -1,11 +1,10 @@
 ### Bootstrap, install and configure ElasticSearch with Chef Solo on an Ubuntu EC2 server
 
-This is an adaptation of the great tutorial [deploying elasticsearch with chef solo](http://www.elasticsearch.org/tutorials/deploying-elasticsearch-with-chef-solo/) written by Karel Minařík which aims to works on Ubuntu based servers.
+This is an adaptation of the great tutorial [deploying elasticsearch with chef solo](http://www.elasticsearch.org/tutorials/deploying-elasticsearch-with-chef-solo/) written by Karel Minařík.
 
-
-It's a simple Rake task that launches an EC2 AMI based on Ubuntu.
-It currently uses the Ubuntu 12.04 TLS (ami-d0f89fb9), but it should work with other Ubuntu version/AMI.
-A 25gb EBS is attached to the AMI.
+It's a simple Rake task that launches an EC2 Instance based on Ubuntu.
+It currently uses the Ubuntu 12.04 LTS (ami-d0f89fb9), but it should work with other Ubuntu version/AMI.
+A 25gb EBS volume is attached to the AMI to store the Elasticsearch indexes (size is configurable).
 
 It basically installs and configures Elasticsearch through Chef-solo recipes.
 Elasticsearch is monitored by Monit and Nginx is used as a proxy.
@@ -17,14 +16,12 @@ Add a node.json file
 mv node.json.example node.json
 ```
 
-Add your AWS and NGINX credentials and your contact email for Monit. (search and replace the term "YOUR_" in the node.json file)
-
-Copy your AWS SSH Key into the tmp directory
+Add your AWS and NGINX credentials, your EC2 security group and your contact email for Monit (search and replace the term "YOUR_" in the node.json file).
 
 Finally launch the rake task
 ```shell
 bundle install
-bundle exec rake create NAME=elastisearch-01
+bundle exec rake create NAME=elastisearch-01 AWS_SSH_KEY_ID=aws_key_pair_name SSH_KEY=path/to/aws_key_pair
 ```
 
 #### TESTING
@@ -69,7 +66,7 @@ Let’s try to perform a search:
 curl "http://$USERNAME:$PASSWORD@$HOST:8080/_search?pretty"
 ```
 
-Launch another machine
+Launch another machine:
 ```shell
 bundle exec rake create NAME=elastisearch-02
 ```
@@ -78,8 +75,7 @@ In a browser open:
 ```
 http://$USERNAME:$PASSWORD@$HOST:8080/_plugin/paramedic/
 ```
-
-There should be 2 nodes now ! Hurrah !
+With the EC2 autodiscovery function from elasticsearch, these 2 servers (and thus 2 nodes) are now working together. Hurrah !
 
 #### Authors
 
