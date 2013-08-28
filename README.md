@@ -1,4 +1,4 @@
-# Bootstrap, install and configure ElasticSearch with Chef Solo on an Ubuntu EC2 server
+### Bootstrap, install and configure ElasticSearch with Chef Solo on an Ubuntu EC2 server
 
 This is an adaptation of the great tutorial [deploying elasticsearch with chef solo](http://www.elasticsearch.org/tutorials/deploying-elasticsearch-with-chef-solo/) written by Karel Minařík which aims to works on Ubuntu based servers.
 
@@ -10,10 +10,10 @@ A 25gb EBS is attached to the AMI.
 It basically installs and configures Elasticsearch through Chef-solo recipes.
 Elasticsearch is monitored by Monit and Nginx is used as a proxy.
 
-## USAGE
+#### USAGE
 
 Add a node.json file
-```
+```shell
 mv node.json.example node.json
 ```
 
@@ -22,14 +22,14 @@ Add your AWS and NGINX credentials and your contact email for Monit. (search and
 Copy your AWS SSH Key into the tmp directory
 
 Finally launch the rake task
-```
+```shell
 bundle install
 bundle exec rake create NAME=elastisearch-01
 ```
 
-## TESTING
+#### TESTING
 
-```Shell
+```shell
 curl http://USERNAME:PASSWORD@HOST:8080
 ```
 Should returns something like:
@@ -50,7 +50,7 @@ Should returns something like:
 ```
 
 Anyway, we can index some documents through the proxy just fine:
-```Shell
+```shell
 curl -X POST "http://USERNAME:PASSWORD@HOST:8080/test_chef_cookbook/document/1" -d '{"title" : "Test 1"}'
 curl -X POST "http://USERNAME:PASSWORD@HOST:8080/test_chef_cookbook/document/2" -d '{"title" : "Test 2"}'
 curl -X POST "http://USERNAME:PASSWORD@HOST:8080/test_chef_cookbook/document/3" -d '{"title" : "Test 3"}'
@@ -58,12 +58,12 @@ curl -X POST "http://USERNAME:PASSWORD@HOST:8080/test_chef_cookbook/_refresh"
 ```
 
 Let’s try to perform a search:
-```Shell
+```shell
 curl "http://USERNAME:PASSWORD@$HOST:8080/_search?pretty"
 ```
 
 Launch another machine
-```
+```shell
 bundle exec rake create NAME=elastisearch-02
 ```
 
