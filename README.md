@@ -29,10 +29,17 @@ bundle exec rake create NAME=elastisearch-01
 
 #### TESTING
 
+Add some shell variables
 ```shell
-curl http://USERNAME:PASSWORD@HOST:8080
+USERNAME=YOUR_NGINX_USERNAME
+PASSWORD=YOUR_NGINX_PASSWORD
+HOST=YOUR_AWS_HOST
 ```
-Should returns something like:
+
+```shell
+curl http://$USERNAME:$PASSWORD@$HOST:8080
+```
+Should returns something like this:
 ```json
 {
   "ok" : true,
@@ -51,15 +58,15 @@ Should returns something like:
 
 Anyway, we can index some documents through the proxy just fine:
 ```shell
-curl -X POST "http://USERNAME:PASSWORD@HOST:8080/test_chef_cookbook/document/1" -d '{"title" : "Test 1"}'
-curl -X POST "http://USERNAME:PASSWORD@HOST:8080/test_chef_cookbook/document/2" -d '{"title" : "Test 2"}'
-curl -X POST "http://USERNAME:PASSWORD@HOST:8080/test_chef_cookbook/document/3" -d '{"title" : "Test 3"}'
-curl -X POST "http://USERNAME:PASSWORD@HOST:8080/test_chef_cookbook/_refresh"
+curl -X POST "http://$USERNAME:$PASSWORD@$HOST:8080/test_chef_cookbook/document/1" -d '{"title" : "Test 1"}'
+curl -X POST "http://$USERNAME:$PASSWORD@$HOST:8080/test_chef_cookbook/document/2" -d '{"title" : "Test 2"}'
+curl -X POST "http://$USERNAME:$PASSWORD@$HOST:8080/test_chef_cookbook/document/3" -d '{"title" : "Test 3"}'
+curl -X POST "http://$USERNAME:$PASSWORD@$HOST:8080/test_chef_cookbook/_refresh"
 ```
 
 Let’s try to perform a search:
 ```shell
-curl "http://USERNAME:PASSWORD@$HOST:8080/_search?pretty"
+curl "http://$USERNAME:$PASSWORD@$HOST:8080/_search?pretty"
 ```
 
 Launch another machine
@@ -69,7 +76,7 @@ bundle exec rake create NAME=elastisearch-02
 
 In a browser open:
 ```
-http://USERNAME:PASSWORD@HOST:8080/_plugin/paramedic/
+http://$USERNAME:$PASSWORD@$HOST:8080/_plugin/paramedic/
 ```
 
 There should be 2 nodes now ! Hurrah !
