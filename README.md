@@ -23,7 +23,7 @@ Install gems
 bundle install
 ```
 
-Finally launch the rake task, don't forget to add a NAME for the ES node, AWS_SSH_KEY_ID which is the name of your AWS Key Pair and SSH_KEY which is the local path to your Key Pair 
+Finally launch the rake task, don't forget to add a NAME for the ES node, AWS_SSH_KEY_ID which is the name of your AWS Key Pair and SSH_KEY which is the local path to your Key Pair
 ```shell
 bundle exec rake create NAME=elastisearch-01 AWS_SSH_KEY_ID=aws_key_pair_name SSH_KEY=path/to/aws_key_pair
 ```
@@ -80,7 +80,7 @@ When finished open in your browser:
 http://$USERNAME:$PASSWORD@$HOST:8080/_plugin/paramedic/
 ```
 With the EC2 autodiscovery function from elasticsearch, these 2 servers (and thus 2 nodes) are now working together.
-You can confirm by checking the top left corner you should read "NODES 1 DOCS 3", Hurrah !
+You can confirm by checking the top left corner you should read "NODES 2 DOCS 3", Hurrah !
 
 #### Authors
 
