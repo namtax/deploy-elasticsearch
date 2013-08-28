@@ -83,7 +83,7 @@ There should be 2 nodes now ! Hurrah !
 
 #### Authors
 
-Original code by Karel Minařík [@karmi](https://github.com/karmi)
+Original code and tutorial by Karel Minařík [@karmi](https://github.com/karmi)
 
 Upgraded and adapted for Ubuntu by:
 * Louis Cuny: [@lou](https://github.com/lou)
