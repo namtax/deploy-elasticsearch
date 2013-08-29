@@ -23,7 +23,7 @@ mkdir -p /etc/chef/
 mkdir -p /var/chef-solo/site-cookbooks
 mkdir -p /var/chef-solo/cookbooks
 
-if test -f ./tmp/solo.rb; then mv ./tmp/solo.rb /etc/chef/solo.rb; fi
+if test -f /tmp/solo.rb; then mv /tmp/solo.rb /etc/chef/solo.rb; fi
 
 echo -e "\nDownloading cookbooks..." \
         "\n===============================================================================\n"

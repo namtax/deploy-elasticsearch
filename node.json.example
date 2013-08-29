@@ -16,7 +16,7 @@
 
     "discovery" : { "type": "ec2" },
 
-    "data_path" : "/usr/local/var/data/elasticsearch/disk1",
+    "path" : { "data": "/usr/local/var/data/elasticsearch/disk1" },
 
     "data" : {
 
