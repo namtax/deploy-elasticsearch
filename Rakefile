@@ -226,7 +226,7 @@ task :setup do
   @args[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY'] || aws_secret_access_key
   @args[:aws_region]            = ENV['AWS_REGION'] || aws_region || 'us-east-1'
   @args[:aws_groups]            = ENV['GROUP'] || aws_group || 'elasticsearch'
-  @args[:aws_flavor]            = ENV['FLAVOR'] || 'm1.medium'
+  @args[:aws_flavor]            = ENV['FLAVOR'] || 'm1.large'
   @args[:aws_image]             = ENV['IMAGE'] || 'ami-d0f89fb9'
   @args[:ssh_user]              = ENV['SSH_USER'] || 'ubuntu'
   @args[:ssh_key]               = ENV['SSH_KEY']  || File.expand_path('../id_rsa-pstam-keypair', __FILE__)
