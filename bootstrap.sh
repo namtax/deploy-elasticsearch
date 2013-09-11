@@ -5,7 +5,7 @@ apt-get -y purge man-db
 echo -e "\nAdding apt repository package list..." \
         "\n===============================================================================\n"
 
-add-apt-repository ppa:webupd8team/java
+add-apt-repository -y ppa:webupd8team/java
 
 echo -e "\nUpdating package list..." \
         "\n===============================================================================\n"
