@@ -2,13 +2,22 @@ echo -e "\nPurge man-db..." \
         "\n===============================================================================\n"
 apt-get -y purge man-db
 
+echo -e "\nAdding apt repository package list..." \
+        "\n===============================================================================\n"
+
+add-apt-repository ppa:webupd8team/java
+
 echo -e "\nUpdating package list..." \
         "\n===============================================================================\n"
 apt-get update
 
-echo -e "\nInstalling development dependencies, Ruby and essential tools..." \
+echo -e "\nInstalling development dependencies, Ruby, java 7 and essential tools..." \
         "\n===============================================================================\n"
-apt-get -y install build-essential ruby1.9.1-dev libcurl4-openssl-dev libxml2-dev libxslt1-dev default-jre emacs23 vim curl git
+apt-get -y install build-essential ruby1.9.1-dev libcurl4-openssl-dev libxml2-dev libxslt1-dev default-jre emacs23 vim curl git oracle-jdk7-installer
+
+echo -e "\nEnabling the java 7 jdk..." \
+        "\n===============================================================================\n"
+update-alternatives –display java
 
 echo -e "\nInstalling Rubygems..." \
         "\n===============================================================================\n"
